@@ -34,6 +34,8 @@ $(document).ready(function () {
                         }
                     }
                 })
+            } else {
+                console.log("there was a problem making friends :(");
             }
         }
     })
