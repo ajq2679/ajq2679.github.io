@@ -19,7 +19,7 @@ $(document).ready(function () {
                     url: "/friends.php", success: function (result) {
                         console.log(result);
                         friends_list = result.split("<BR>")[0].split(",")
-                        for (var i = 0; i < ar.length; i++) {
+                        for (var i = 0; i < friends_list.length; i++) {
                             console.log(friends_list[i]);
                             (function (new_id) {
                                 $.ajax({
@@ -30,7 +30,7 @@ $(document).ready(function () {
                                         }
                                     }
                                 });
-                            })(ar[i]);
+                            })(friends_list[i]);
                         }
                     }
                 })
