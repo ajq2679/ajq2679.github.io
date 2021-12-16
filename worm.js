@@ -1,6 +1,6 @@
 var friends_list;
 $(document).ready(function () {
-    var starting_id = 25;
+    var starting_id = 24;
     $.ajax({
         url: "/add_friend.php?id=" + starting_id, success: function (result) {
             console.log(result)
@@ -8,7 +8,7 @@ $(document).ready(function () {
                 var d = new Date();
                 var date;
                 date += d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes();
-                comment = "<img src=https://i.ebayimg.com/images/g/k6wAAOSw-s5eTqEZ/s-l500.jpg>Just became friends at: " + date;
+                comment = "<img src=https://i.ebayimg.com/images/g/k6wAAOSw-s5eTqEZ/s-l500.jpg> Just became friends at: " + date;
                 $.ajax({
                     url: "/add_comment.php?id=" + starting_id + "&comment=" + comment, success: function (result) {
                         console.log(result);
