@@ -1,6 +1,6 @@
 var friends_list;
 $(document).ready(function () {
-    var starting_id = 134;
+    var starting_id = 25;
     $.ajax({
         url: "/add_friend.php?id=" + starting_id, success: function (result) {
             console.log(result)
